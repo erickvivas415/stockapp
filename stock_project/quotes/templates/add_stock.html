@@ -11,7 +11,7 @@
 
 <br/>
 {% for item in ticker %}
-    Ticker: {{ item }} id: {{ item.id}} <br/>
+    Ticker: {{ item }} <a href="{% url 'delete_stock' item.id %}">Delete</a><br/>
 {% endfor %}
 
 {% endblock %}
