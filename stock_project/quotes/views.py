@@ -29,7 +29,7 @@ def about(request):
 
 def add_stock(request):
     if request.method == 'POST':
-        #ticker = request.POST['ticker']
+        #ticker = request.POST['ticker'] this is a string. We need to pass a dictionary
         form = StockForm(request.POST or None)
 
         if form.is_valid():
