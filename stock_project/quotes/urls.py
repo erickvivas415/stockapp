@@ -7,4 +7,6 @@ urlpatterns = [
     path('about', views.about, name="about"),
     path('add_stock.html', views.add_stock, name="add_stock"),
     path('delete_stock/<stock_id>', views.delete_stock, name="delete_stock"),
+    #path('news', views.news, name="news"),
+
 ]

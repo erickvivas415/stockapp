@@ -17,6 +17,15 @@
         YTD Change: {{ api.ytdChange }}<br/>
         52Wk High: {{ api.week52High }}<br/>
         52Wk Low: {{ api.week52Low }}<br/>
+        <br/>
+        <h2>News</h2>
+
+        {% for news in api_news %}
+        <p class="fw-bold"> <a href="{{ news.url }}">{{ news.headline }}</a></p>
+        <p>{{ news.summary }}</p>
+            
+        {% endfor %}
+
     {% endif %}
 {% endif %}
 

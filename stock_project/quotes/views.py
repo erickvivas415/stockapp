@@ -13,16 +13,21 @@ def home(request):
         # API Key: pk_bedfd3f917bf4d758890c03617cc4d01
         APITOKEN = "pk_bedfd3f917bf4d758890c03617cc4d01"
         api_request = requests.get("https://cloud.iexapis.com/stable/stock/" + ticker + "/quote?token=pk_bedfd3f917bf4d758890c03617cc4d01")
-
+        api_news_request = requests.get("https://cloud.iexapis.com/stable/stock/" + ticker + "/news?token=pk_bedfd3f917bf4d758890c03617cc4d01")
         #api = json.loads(api_request.content)
         try:
             api = json.loads(api_request.content)
         except Exception as e:
             api = "Error..."
+        try:
+            api_news = json.loads(api_news_request.content)
+        except Exception as e:
+            api_news = "Error..."
+
     else:
         return render(request, 'home.html', {'ticker': "Enter a ticker symbol above..."})
 
-    return render(request, 'home.html', {'api': api})
+    return render(request, 'home.html', {'api': api, 'api_news': api_news})
 
 def about(request):
     return render(request, 'about.html', {})
