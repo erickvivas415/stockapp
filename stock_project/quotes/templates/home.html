@@ -19,11 +19,16 @@
         52Wk Low: {{ api.week52Low }}<br/>
         <br/>
         <h2>News</h2>
-
         {% for news in api_news %}
-        <p class="fw-bold"> <a href="{{ news.url }}">{{ news.headline }}</a></p>
-        <p>{{ news.summary }}</p>
-            
+        <div class="hstack gap-2 pb-1">
+            <div class="col-md-8">
+                <p class="fw-bold"> <a href="{{ news.url }}">{{ news.headline }}</a></p>
+            <p>{{ news.summary }}</p>
+            </div>    
+            <div>
+                <img src="{{ news.image }}" alt="image" style="width:200px">
+            </div>
+        </div>
         {% endfor %}
 
     {% endif %}
